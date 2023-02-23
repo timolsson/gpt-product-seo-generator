@@ -25,7 +25,7 @@ export default function Home() {
 
       setTimeout(() => {
         if (!loading) return;
-        setMessage("Getting closer ...");
+        setMessage("Hang on ...");
       }, 7000);
 
       setTimeout(() => {
@@ -128,7 +128,7 @@ const styles = {
   header: {
     textAlign: "center" as "center",
     marginTop: "60px",
-    color: "#c683ff",
+    color: "snow",
     fontWeight: "900",
     fontFamily: "Poppins",
     fontSize: "68px",
@@ -138,10 +138,9 @@ const styles = {
     flexDirection: "column" as "column",
     margin: "20px auto 0px",
     padding: "20px",
-    boxShadow: "0px 0px 12px rgba(198, 131, 255, .2)",
     borderRadius: "10px",
   },
   result: {
-    color: "white",
+    color: "snow",
   },
 };

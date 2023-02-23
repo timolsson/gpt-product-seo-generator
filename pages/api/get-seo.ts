@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
@@ -39,7 +38,7 @@ export default async function handler(
     throw new Error("please reduce size of request");
   }
 
-  let basePrompt = `what is an ideal SEO text for a ${color} ${size} ${category} made by the brand ${brand}? Use color, size, category and brand in the result. Do not include anything regarding SEO`;
+  let basePrompt = `Provide me with an ideal SEO text for a ${color} ${size} ${category} made by the brand ${brand}? Use color, size, category and brand in the result. Do not include anything regarding SEO`;
   try {
     const response = await fetch("https://api.openai.com/v1/completions", {
       method: "POST",

@@ -24,10 +24,11 @@ export default Input;
 const styles = {
   input: {
     padding: "10px 14px",
-    marginBottom: "4px",
+    marginBottom: "6px",
     outline: "none",
     fontSize: "16px",
     width: "100%",
-    borderRadius: "8px",
+    border: "1px solid #85ffbd",
+    borderRadius: "4px",
   },
 };

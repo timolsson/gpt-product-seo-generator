@@ -18,7 +18,7 @@ export default function RootLayout({
               <a
                 target="_blank"
                 rel="no-opener"
-                href="https://github.com/dabit3/gpt-travel-advisor"
+                href="https://github.com/timolsson"
               >
                 <Image
                   style={{ marginTop: "2px" }}
@@ -29,7 +29,7 @@ export default function RootLayout({
                 />
               </a>
             </span>{" "}
-            but inspired and templated from roamaround.io
+            | Templated from roamaround.io
           </p>
         </footer>
       </body>
