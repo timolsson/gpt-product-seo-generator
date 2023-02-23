@@ -4,6 +4,7 @@ import Input from "./components/Input";
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Image from "next/image";
 
 export default function Home() {
   const [request, setRequest] = useState<{
@@ -105,9 +106,27 @@ export default function Home() {
               }))
             }
           />
-          <button className="input-button" onClick={getText}>
-            Generate SEO Text
-          </button>
+          {seoText ? (
+            <button
+              className="input-button"
+              onClick={() => {
+                navigator.clipboard.writeText(seoText);
+              }}
+            >
+              <Image
+                style={{ marginRight: "6px" }}
+                alt="code available on github"
+                width="18"
+                height="18"
+                src="/copy-icon.svg"
+              />
+              Copy SEO Text
+            </button>
+          ) : (
+            <button className="input-button" onClick={getText}>
+              Generate SEO Text
+            </button>
+          )}
         </div>
         <div className="results-container">
           {loading && <p>{message}</p>}
