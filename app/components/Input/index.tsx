@@ -1,11 +1,7 @@
 import React from "react";
 
-interface InputProps {
-  type: string;
-  placeholder: string;
-  value: string;
+interface InputProps extends HTMLInputElement{
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  required: boolean;
 }
 
 const Input = ({ type, placeholder, value, onChange, required }: InputProps) => {
