@@ -84,6 +84,7 @@ input {
   padding-bottom: 55px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 }
 
 .input-button:hover {

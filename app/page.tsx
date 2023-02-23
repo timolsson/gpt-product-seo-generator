@@ -1,7 +1,7 @@
 "use client";
 
 import Input from "./components/Input";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
@@ -17,6 +17,7 @@ export default function Home() {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
   async function getText() {
     try {
       if (!request.category || !request.brand) return;
@@ -61,8 +62,7 @@ export default function Home() {
         <h1 style={styles.header} className="hero-header">
           Product SEO Generator
         </h1>
-        <form style={styles.formContainer} className="form-container" onSubmit={(event) =>event.preventDefault()}>
-
+        <form style={styles.formContainer} className="form-container" onSubmit={(event) => event.preventDefault()}>
           <Input
             type="text"
             placeholder="Category"
@@ -75,7 +75,6 @@ export default function Home() {
             }
             required={true}
           />
-
           <Input
             type="text"
             placeholder="Color"
@@ -112,37 +111,38 @@ export default function Home() {
             }
             required={true}
           />
-          {seoText ? (
-            <button
-              className="input-button"
-              onClick={() => {
-                navigator.clipboard.writeText(seoText);
-              }}
-            >
-              <Image
-                style={{ marginRight: "6px" }}
-                alt="code available on github"
-                width="18"
-                height="18"
-                src="/copy-icon.svg"
-              />
-              Copy SEO Text
-            </button>
-          ) : (
-            <button className="input-button" onClick={getText}>
-              Generate SEO Text
-            </button>
-          )}
+          <button className="input-button" onClick={getText} disabled={loading}>
+            Generate SEO Text
+          </button>
         </form>
         <div className="results-container">
           {loading && <p>{message}</p>}
-          {seoText ? (
-            <div style={{ marginBottom: "30px" }}>
+          {seoText && (
+            <div style={{
+              marginBottom: "30px",
+              position: 'relative',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)'
+            }}>
+              <button
+                style={styles.copyButton}
+                className="copy-button"
+                onClick={() => {
+                  navigator.clipboard.writeText(seoText);
+                }}
+              >
+                <Image
+                  style={{marginRight: "6px"}}
+                  alt="code available on github"
+                  width="18"
+                  height="18"
+                  src="/copy-icon.svg"
+                />
+              </button>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {seoText}
               </ReactMarkdown>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
     </main>
@@ -150,6 +150,16 @@ export default function Home() {
 }
 
 const styles = {
+  copyButton: {
+    fontSize: '16px',
+    lineHeight: '1.5',
+    wordWrap: 'break-word',
+    boxSizing: 'border-box',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    animation: 'fade-out 200ms both',
+  },
   header: {
     textAlign: "center" as "center",
     marginTop: "60px",
