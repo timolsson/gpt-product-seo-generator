@@ -1,18 +1,28 @@
 "use client";
 
-import Input from "./components/Input";
+import Input from "../components/Input";
 import React, {useState} from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
 
-export default function Home() {
+export default function Home({params}) {
+
+  let paramsObj = {};
+  if (params?.slug) {
+    paramsObj = params?.slug?.reduce((acc, curr, i) => {
+      if (i % 2 === 0) {
+        acc[decodeURI(curr)] = decodeURI(params.slug[i + 1]);
+      }
+      return acc;
+    }, {});
+  }
   const [request, setRequest] = useState<{
     brand?: string;
     category?: string;
     color?: string;
     size?: string;
-  }>({});
+  }>(paramsObj);
   let [seoText, setSeoText] = useState<string>("");
 
   const [loading, setLoading] = useState(false);
