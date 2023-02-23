@@ -62,6 +62,7 @@ export default function Home() {
           Product SEO Generator
         </h1>
         <form style={styles.formContainer} className="form-container" onSubmit={(event) =>event.preventDefault()}>
+
           <Input
             type="text"
             placeholder="Category"
@@ -74,6 +75,7 @@ export default function Home() {
             }
             required={true}
           />
+
           <Input
             type="text"
             placeholder="Color"
