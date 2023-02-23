@@ -32,12 +32,6 @@ export default async function handler(
     size = body.size;
   }
 
-  const parts = category.split(" ");
-
-  if (parts.length > 5) {
-    throw new Error("please reduce size of request");
-  }
-
   let basePrompt = `Provide me with an ideal SEO text for a ${color} ${size} ${category} made by the brand ${brand}? Use color, size, category and brand in the result. Do not include anything regarding SEO`;
   try {
     const response = await fetch("https://api.openai.com/v1/completions", {

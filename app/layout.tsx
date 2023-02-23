@@ -28,8 +28,7 @@ export default function RootLayout({
                   src="/github.svg"
                 />
               </a>
-            </span>{" "}
-            | Templated from roamaround.io
+            </span>
           </p>
         </footer>
       </body>

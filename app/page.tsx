@@ -130,7 +130,7 @@ const styles = {
     marginTop: "60px",
     color: "snow",
     fontWeight: "900",
-    fontFamily: "Poppins",
+    fontFamily: "Lato",
     fontSize: "68px",
   },
   formContainer: {
