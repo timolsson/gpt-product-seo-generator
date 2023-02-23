@@ -50,6 +50,7 @@ body {
 input {
   color: black;
 }
+
 ::placeholder {
   color: darkblue;
 }
