@@ -61,7 +61,7 @@ export default function Home() {
         <h1 style={styles.header} className="hero-header">
           Product SEO Generator
         </h1>
-        <div style={styles.formContainer} className="form-container">
+        <form style={styles.formContainer} className="form-container" onSubmit={(event) =>event.preventDefault()}>
           <Input
             type="text"
             placeholder="Category"
@@ -72,6 +72,7 @@ export default function Home() {
                 category: e.target.value,
               }))
             }
+            required={true}
           />
           <Input
             type="text"
@@ -83,6 +84,7 @@ export default function Home() {
                 color: e.target.value,
               }))
             }
+            required={true}
           />
           <Input
             type="text"
@@ -94,6 +96,7 @@ export default function Home() {
                 size: e.target.value,
               }))
             }
+            required={true}
           />
           <Input
             type="text"
@@ -105,6 +108,7 @@ export default function Home() {
                 brand: e.target.value,
               }))
             }
+            required={true}
           />
           {seoText ? (
             <button
@@ -127,7 +131,7 @@ export default function Home() {
               Generate SEO Text
             </button>
           )}
-        </div>
+        </form>
         <div className="results-container">
           {loading && <p>{message}</p>}
           {seoText ? (
