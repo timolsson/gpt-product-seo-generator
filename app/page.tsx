@@ -150,7 +150,7 @@ const styles = {
     color: "snow",
     fontWeight: "900",
     fontFamily: "Lato",
-    fontSize: "68px",
+    fontSize: "4vh",
   },
   formContainer: {
     display: "flex",
