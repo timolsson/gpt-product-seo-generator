@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import Input from "./components/Input";
+import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -12,16 +13,6 @@ export default function Home() {
     size?: string;
   }>({});
   let [seoText, setSeoText] = useState<string>("");
-  /* 
-  useEffect(() => {
-    checkRedirect();
-  }, []);
-
-  function checkRedirect() {
-    if (window.location.hostname === "gpt-travel-advisor.vercel.app") {
-      window.location.replace("https://www.roamaround.io/");
-    }
-  } */
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -70,9 +61,10 @@ export default function Home() {
           Product SEO Generator
         </h1>
         <div style={styles.formContainer} className="form-container">
-          <input
-            style={styles.input}
+          <Input
+            type="text"
             placeholder="Category"
+            value={request.category || ""}
             onChange={(e) =>
               setRequest((request) => ({
                 ...request,
@@ -80,9 +72,10 @@ export default function Home() {
               }))
             }
           />
-          <input
-            style={styles.input}
+          <Input
+            type="text"
             placeholder="Color"
+            value={request.color || ""}
             onChange={(e) =>
               setRequest((request) => ({
                 ...request,
@@ -90,9 +83,10 @@ export default function Home() {
               }))
             }
           />
-          <input
-            style={styles.input}
+          <Input
+            type="text"
             placeholder="Size"
+            value={request.size || ""}
             onChange={(e) =>
               setRequest((request) => ({
                 ...request,
@@ -100,9 +94,10 @@ export default function Home() {
               }))
             }
           />
-          <input
-            style={styles.input}
+          <Input
+            type="text"
             placeholder="Brand"
+            value={request.brand || ""}
             onChange={(e) =>
               setRequest((request) => ({
                 ...request,
@@ -137,14 +132,6 @@ const styles = {
     fontWeight: "900",
     fontFamily: "Poppins",
     fontSize: "68px",
-  },
-  input: {
-    padding: "10px 14px",
-    marginBottom: "4px",
-    outline: "none",
-    fontSize: "16px",
-    width: "100%",
-    borderRadius: "8px",
   },
   formContainer: {
     display: "flex",
