@@ -16,7 +16,7 @@ export default function Home() {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  async function hitAPI() {
+  async function getText() {
     try {
       if (!request.category || !request.brand) return;
       setMessage("Generating your custom SEO text...");
@@ -105,7 +105,7 @@ export default function Home() {
               }))
             }
           />
-          <button className="input-button" onClick={hitAPI}>
+          <button className="input-button" onClick={getText}>
             Generate SEO Text
           </button>
         </div>
