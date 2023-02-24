@@ -126,7 +126,7 @@ export default function Home() {
         <div className="results-container">
           {loading && <p>{message}</p>}
           {seoText ? (
-            <div style={{ marginBottom: "30px" }}>
+            <div style={{ marginBottom: "30px", paddingTop: "16px" }}>
               <button
                 className="copy-button"
                 onClick={() => {

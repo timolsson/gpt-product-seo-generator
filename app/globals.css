@@ -69,7 +69,7 @@ input {
 }
 
 .copy-button {
-  background: lightgray;
+  background: #d3d3d3;
   padding: 6px;
   border: 1px solid #808080;
   border-radius: 5px;
