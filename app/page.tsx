@@ -119,32 +119,27 @@ export default function Home() {
               }))
             }
           />
-          {seoText ? (
-            <button
-              className="input-button"
-              onClick={() => {
-                navigator.clipboard.writeText(seoText);
-              }}
-            >
-              <Image
-                style={{ marginRight: "6px" }}
-                alt="code available on github"
-                width="18"
-                height="18"
-                src="/copy-icon.svg"
-              />
-              Copy SEO Text
-            </button>
-          ) : (
-            <button className="input-button" onClick={getText}>
-              Generate SEO Text
-            </button>
-          )}
+          <button className="input-button" onClick={getText}>
+            Generate SEO Text
+          </button>
         </div>
         <div className="results-container">
           {loading && <p>{message}</p>}
           {seoText ? (
             <div style={{ marginBottom: "30px" }}>
+              <button
+                className="copy-button"
+                onClick={() => {
+                  navigator.clipboard.writeText(seoText);
+                }}
+              >
+                <Image
+                  alt="code available on github"
+                  width="18"
+                  height="18"
+                  src="/copy-icon.svg"
+                />
+              </button>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {seoText}
               </ReactMarkdown>
