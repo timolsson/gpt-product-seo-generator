@@ -12,6 +12,7 @@ export default function Home() {
     category?: string;
     color?: string;
     size?: string;
+    language?: string;
   }>({});
   let [seoText, setSeoText] = useState<string>("");
 
@@ -41,6 +42,7 @@ export default function Home() {
           category: request.category,
           size: request.size,
           brand: request.brand,
+          language: request.language,
         }),
       });
       const json = await response.json();
@@ -103,6 +105,17 @@ export default function Home() {
               setRequest((request) => ({
                 ...request,
                 brand: e.target.value,
+              }))
+            }
+          />
+          <Input
+            type="text"
+            placeholder="Your language"
+            value={request.language || ""}
+            onChange={(e) =>
+              setRequest((request) => ({
+                ...request,
+                language: e.target.value,
               }))
             }
           />
