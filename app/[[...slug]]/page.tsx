@@ -178,16 +178,6 @@ export default function Home({ params }) {
 }
 
 const styles = {
-  copyButton: {
-    fontSize: "16px",
-    lineHeight: "1.5",
-    wordWrap: "break-word",
-    boxSizing: "border-box",
-    position: "absolute",
-    top: 0,
-    right: 0,
-    animation: "fade-out 200ms both",
-  },
   header: {
     textAlign: "center" as "center",
     marginTop: "60px",
