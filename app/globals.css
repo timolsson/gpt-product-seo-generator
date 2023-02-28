@@ -69,6 +69,24 @@ input {
   font-size: 18px;
 }
 
+.copy-button {
+  background: #d3d3d3;
+  padding: 6px;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  display: flex;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+.copy-button:hover {
+  border: 1px solid #a9a9a9;
+  background: rgb(186, 184, 184);
+  transition: ease 0.1s;
+  cursor: pointer;
+}
+
 .app-container {
   padding: 20px;
   min-height: 100%;

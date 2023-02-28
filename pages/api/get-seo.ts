@@ -24,15 +24,18 @@ export default async function handler(
   let size = "Oversized";
   let category = "T-shirt";
   let brand = "Filippa K";
+  let language = "English";
   if (req.body) {
     let body = JSON.parse(req.body);
     color = body.category;
     category = body.category;
     brand = body.brand;
     size = body.size;
+    language = body.language;
   }
 
-  let basePrompt = `Provide me with an ideal SEO text for a ${color} ${size} ${category} made by the brand ${brand}? Use color, size, category and brand in the result. Do not include anything regarding SEO`;
+  let basePrompt = `Provide me with an ideal SEO text for a ${color} ${size} ${category} made by the brand ${brand}? Use color, size, category and brand in the result. 
+  Do not include anything regarding "SEO" and the text should be in ${language}`;
   try {
     const response = await fetch("https://api.openai.com/v1/completions", {
       method: "POST",
