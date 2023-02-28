@@ -5,9 +5,10 @@ interface InputProps {
   placeholder: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  required: boolean;
 }
 
-const Input = ({ type, placeholder, value, onChange }: InputProps) => {
+const Input = ({ type, placeholder, value, onChange, required }: InputProps) => {
   return (
     <input
       style={styles.input}
@@ -15,6 +16,7 @@ const Input = ({ type, placeholder, value, onChange }: InputProps) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      required={required}
     />
   );
 };

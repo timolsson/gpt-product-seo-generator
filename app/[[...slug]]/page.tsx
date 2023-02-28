@@ -1,23 +1,33 @@
 "use client";
 
-import Input from "./components/Input";
+import Input from "../components/Input";
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
 
-export default function Home() {
+export default function Home({ params }) {
+  let paramsObj = {};
+  if (params?.slug) {
+    paramsObj = params?.slug?.reduce((acc, curr, i) => {
+      if (i % 2 === 0) {
+        acc[decodeURI(curr)] = decodeURI(params.slug[i + 1]);
+      }
+      return acc;
+    }, {});
+  }
   const [request, setRequest] = useState<{
     brand?: string;
     category?: string;
     color?: string;
     size?: string;
     language?: string;
-  }>({});
+  }>(paramsObj);
   let [seoText, setSeoText] = useState<string>("");
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
   async function getText() {
     try {
       if (!request.category || !request.brand) return;
@@ -63,7 +73,11 @@ export default function Home() {
         <h1 style={styles.header} className="hero-header">
           Product SEO Generator
         </h1>
-        <div style={styles.formContainer} className="form-container">
+        <form
+          style={styles.formContainer}
+          className="form-container"
+          onSubmit={(event) => event.preventDefault()}
+        >
           <Input
             type="text"
             placeholder="Category"
@@ -74,6 +88,7 @@ export default function Home() {
                 category: e.target.value,
               }))
             }
+            required={true}
           />
           <Input
             type="text"
@@ -85,6 +100,7 @@ export default function Home() {
                 color: e.target.value,
               }))
             }
+            required={true}
           />
           <Input
             type="text"
@@ -96,6 +112,7 @@ export default function Home() {
                 size: e.target.value,
               }))
             }
+            required={true}
           />
           <Input
             type="text"
@@ -107,6 +124,7 @@ export default function Home() {
                 brand: e.target.value,
               }))
             }
+            required={true}
           />
           <Input
             type="text"
@@ -118,15 +136,23 @@ export default function Home() {
                 language: e.target.value,
               }))
             }
+            required={true}
           />
           <button className="input-button" onClick={getText}>
             Generate SEO Text
           </button>
-        </div>
+        </form>
         <div className="results-container">
           {loading && <p>{message}</p>}
           {seoText ? (
-            <div style={{ marginBottom: "30px", paddingTop: "16px" }}>
+            <div
+              style={{
+                marginBottom: "30px",
+                padding: "16px",
+                position: "relative",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+              }}
+            >
               <button
                 className="copy-button"
                 onClick={() => {
