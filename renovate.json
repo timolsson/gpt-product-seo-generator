@@ -5,7 +5,6 @@
         ":automergeMajor",
         ":pinAllExceptPeerDependencies"
     ],
-    "forkProcessing": true,
     "includeForks": true,
     "labels": ["dependencies"],
     "packageRules": [
