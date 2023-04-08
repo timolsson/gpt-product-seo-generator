@@ -23,7 +23,7 @@ export default function Home({ params }) {
     size?: string;
     language?: string;
   }>(paramsObj);
-  let [seoText, setSeoText] = useState<string>("");
+  const [seoText, setSeoText] = useState<string>("");
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -57,7 +57,7 @@ export default function Home({ params }) {
       });
       const json = await response.json();
 
-      let seoText = json.seoText;
+      const seoText = json.seoText;
 
       setSeoText(seoText);
       setLoading(false);
@@ -179,7 +179,7 @@ export default function Home({ params }) {
 
 const styles = {
   header: {
-    textAlign: "center" as "center",
+    textAlign: "center" as const,
     marginTop: "60px",
     color: "snow",
     fontWeight: "900",
@@ -188,7 +188,7 @@ const styles = {
   },
   formContainer: {
     display: "flex",
-    flexDirection: "column" as "column",
+    flexDirection: "column" as const,
     margin: "20px auto 0px",
     padding: "20px",
     borderRadius: "10px",
