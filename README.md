@@ -1,5 +1,7 @@
 # SEO Product Text Generator
 
+Created on Spherio Hackathon Day
+
 ### Requirements
 
 Get Your own OpenAI API Key [here](https://openai.com/api/)
