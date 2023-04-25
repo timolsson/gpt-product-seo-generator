@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type {NextApiRequest, NextApiResponse} from "next";
 
 type Data = {
   message: string;
-  seoText: any;
+  seoText: unknown;
 };
 
 type Error = {
@@ -26,7 +26,7 @@ export default async function handler(
   let brand = "Filippa K";
   let language = "English";
   if (req.body) {
-    let body = JSON.parse(req.body);
+    const body = JSON.parse(req.body);
     color = body.category;
     category = body.category;
     brand = body.brand;
@@ -34,7 +34,7 @@ export default async function handler(
     language = body.language;
   }
 
-  let basePrompt = `Provide me with an ideal SEO text for a ${color} ${size} ${category} made by the brand ${brand}? Use color, size, category and brand in the result. 
+  const basePrompt = `Provide me with an ideal SEO text for a ${color} ${size} ${category} made by the brand ${brand}? Use color, size, category and brand in the result. 
   Do not include anything regarding "SEO" and the text should be in ${language}`;
   try {
     const response = await fetch("https://api.openai.com/v1/completions", {

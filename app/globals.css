@@ -82,7 +82,7 @@ input {
 
 .copy-button:hover {
   border: 1px solid #a9a9a9;
-  background: rgb(186, 184, 184);
+  background: rgb(186 184 184);
   transition: ease 0.1s;
   cursor: pointer;
 }
@@ -109,13 +109,13 @@ input {
   background-color: #00e9ca;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (width <= 500px) {
   .form-container {
     width: 100%;
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (width <= 900px) {
   .results-container {
     width: 100%;
     padding-left: 15px;
